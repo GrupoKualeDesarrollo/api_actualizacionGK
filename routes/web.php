@@ -16,3 +16,4 @@ Route::get('/', [App\Http\Controllers\ExcelController::class, 'index'])->name('/
 
 Route::get('/index', [App\Http\Controllers\ExcelController::class, 'index'])->name('/index');
 
+Route::post('/consultarInformacion', [App\Http\Controllers\ExcelController::class, 'consultarInformacion'])->name('/consultarInformacion');

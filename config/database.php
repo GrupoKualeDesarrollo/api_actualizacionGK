@@ -93,6 +93,35 @@ return [
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
         ],
 
+        //configuracion pruebas mysql Base de datos antigua MYSQL
+        'conexion-ContpaqCARLS' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => '127.0.0.1',
+            'port' => '1433',
+            'database' => 'CARLSContpaq',
+            'username' => 'sa',
+            'password' => 'kuale',
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
+            // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
+        'conexion-ContpaqDQ' => [
+            'driver' => 'sqlsrv',
+            'url' => env('DATABASE_URL'),
+            'host' => '127.0.0.1',
+            'port' => '1433',
+            'database' => 'DQContpaq',
+            'username' => 'sa',
+            'password' => 'kuale',
+            'charset' => 'utf8',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            // 'encrypt' => env('DB_ENCRYPT', 'yes'),
+            // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
     ],
 
     /*
@@ -145,7 +174,5 @@ return [
             'port' => env('REDIS_PORT', '6379'),
             'database' => env('REDIS_CACHE_DB', '1'),
         ],
-
     ],
-
 ];
