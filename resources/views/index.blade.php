@@ -14,7 +14,19 @@
 
 <body>
 
+
     <div class="container-fluid">
+        <br>
+        <div class="row">
+            <div class="col-md-12 text-end">
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-default">
+                        <img src="{{asset('img/salir.png')}}" style="width: 30px; height: 30px;" alt="Actualizar" class="img-fluid mr-2"> Salir
+                    </button>
+                </form>
+            </div>
+        </div>
         <br>
         <div class="row">
             <input type="hidden" name="_token" id="token" value="{{ csrf_token() }}">
@@ -38,15 +50,16 @@
 
                         <label for="empresa">Empresa</label>
                         <select class="form-control py-2" name="empresa" id="empresa">
+                            <option value="">-- Selecciona una empresa --</option>
+
                             <option value="1">Carl's JR</option>
                             <option value="2">Dairy Queen</option>
+                            <option value="3">5aSec</option>
                         </select>
 
                         <label for="empresa">Tipo de Documento</label>
                         <select class="form-control" name="tipoDocumento" id="tipoDocumento">
-                            <option value="56">56 - Ingreso Bancario Panamericano</option>
-                            <option value="57">57 - Egreso Comisiones - IVA</option>
-                            <option value="58">58 - Ingreso Bancario Tarjetas</option>
+
                         </select>
                     </div>
                     <div class="card-footer text-end">
@@ -58,26 +71,26 @@
                 <table class="table table-striped py-3" id="tabla_actualizacion">
                     <thead class="table-dark">
                         <tr>
-                            <th>Folio</th>
+                            <th style="width: 50px;">Folio</style=>
                             <th>Fecha</th>
                             <th>Concepto</th>
-                            <th>Numero Póliza</th>
-                            <th>Total</th>
+                            <th style="width: 115px;">Numero Póliza</th>
+                            <th style="width: 100px;">Total</th>
+                            <th style="width: 115px;">Metodo Pago</style=>
                         </tr>
                     </thead>
                     <tbody>
-
                     </tbody>
                 </table>
                 <br><br>
                 <div class="text-end">
-                    <button class="btn btn-primary">Actualizar Datos</button>
+                    <button class="btn btn-primary" onclick="actualizar()">Actualizar Datos</button>
                 </div>
                 <br>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
 

@@ -2,18 +2,21 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-Route::get('/', [App\Http\Controllers\ExcelController::class, 'index'])->name('/index');
+Route::get('/', [App\Http\Controllers\LoginController::class, 'indexLogin'])->name('');
+Route::get('/login', [App\Http\Controllers\LoginController::class, 'indexLogin'])->name('login');
+Route::get('/registrar', [App\Http\Controllers\LoginController::class, 'registrarUsuario'])->name('registrar');
 
-Route::get('/index', [App\Http\Controllers\ExcelController::class, 'index'])->name('/index');
+Route::post('/validar', [App\Http\Controllers\LoginController::class, 'login'])->name('validar');
+Route::post('/logout', [App\Http\Controllers\LoginController::class, 'logout'])->name('logout');
 
-Route::post('/consultarInformacion', [App\Http\Controllers\ExcelController::class, 'consultarInformacion'])->name('/consultarInformacion');
+
+Route::group(['middleware' => ['auth']], function () {
+
+    Route::get('/', [App\Http\Controllers\ExcelController::class, 'index'])->name('/index');
+
+    Route::get('/index', [App\Http\Controllers\ExcelController::class, 'index'])->name('/index');
+
+    Route::post('/consultarInformacion', [App\Http\Controllers\ExcelController::class, 'consultarInformacion'])->name('/consultarInformacion');
+
+    Route::post('/actualizarInformacion', [App\Http\Controllers\ExcelController::class, 'actualizarInformacion'])->name('/actualizarInformacion');
+});
