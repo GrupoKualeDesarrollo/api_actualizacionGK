@@ -67,7 +67,7 @@ let tipoDocumento;
 
 function consultar() {
     Swal.fire({
-        title: "Buscando ticket",
+        title: "Consultando",
         allowOutsideClick: false,
         timerProgressBar: true,
         didOpen: () => {
@@ -106,52 +106,52 @@ function consultar() {
             console.log(response.datos);
             const respuesta = response.respuesta;
 
-            // switch (respuesta) {
-            //     case 1:
-            //         var tabla = "";
-            //         destruirDataTable();
-            //         document.querySelector(
-            //             "#tabla_actualizacion tbody"
-            //         ).innerHTML = "";
+            switch (respuesta) {
+                case 1:
+                    var tabla = "";
+                    destruirDataTable();
+                    document.querySelector(
+                        "#tabla_actualizacion tbody"
+                    ).innerHTML = "";
 
-            //         datos = response.datos;
+                    datos = response.datos;
 
-            //         datos.forEach((dato) => {
-            //             var metodoPago = ""
-            //             if(dato.OtroMetodoDePago === "" || dato.OtroMetodoDePago === " "){
-            //                 metodoPago = "No registrado"
-            //             }else{
-            //                 metodoPago = dato.OtroMetodoDePago
-            //             }
-            //             var fecha = dato.Fecha.slice(0, 10);
-            //             let fila = "<tr>";
-            //             fila += "<td>" + dato.Folio + "</td>";
-            //             fila += "<td>" + fecha + "</td>";
-            //             fila += "<td>" + dato.Concepto + "</td>";
-            //             fila += "<td>" + dato.NumPol + "</td>";
-            //             fila +=
-            //                 "<td>" +
-            //                 formatoFinal(formatearNumero(dato.Total)) +
-            //                 "</td>";
-            //             fila += "<td>" + metodoPago + "</td>";
-            //             fila += "</tr>";
+                    datos.forEach((dato) => {
+                        var metodoPago = ""
+                        if(dato.OtroMetodoDePago === "" || dato.OtroMetodoDePago === " "){
+                            metodoPago = "No registrado"
+                        }else{
+                            metodoPago = dato.OtroMetodoDePago
+                        }
+                        var fecha = dato.Fecha.slice(0, 10);
+                        let fila = "<tr>";
+                        fila += "<td>" + dato.Folio + "</td>";
+                        fila += "<td>" + fecha + "</td>";
+                        fila += "<td>" + dato.Concepto + "</td>";
+                        fila += "<td>" + dato.NumPol + "</td>";
+                        fila +=
+                            "<td>" +
+                            formatoFinal(formatearNumero(dato.Total)) +
+                            "</td>";
+                        fila += "<td>" + metodoPago + "</td>";
+                        fila += "</tr>";
                         
 
-            //             document.querySelector(
-            //                 "#tabla_actualizacion tbody"
-            //             ).innerHTML += fila;
-            //         });
+                        document.querySelector(
+                            "#tabla_actualizacion tbody"
+                        ).innerHTML += fila;
+                    });
 
-            //         datateibol();
-            //         Swal.close();
-            //         alertas(respuesta, response.mensaje);
-            //         break;
-            //     case 2:
-            //         alertas(respuesta, response.mensaje);
-            //         break;
-            //     default:
-            //         break;
-            // }
+                    datateibol();
+                    Swal.close();
+                    alertas(respuesta, response.mensaje);
+                    break;
+                case 2:
+                    alertas(respuesta, response.mensaje);
+                    break;
+                default:
+                    break;
+            }
         })
         .catch((error) => console.error("Error:", error));
 }

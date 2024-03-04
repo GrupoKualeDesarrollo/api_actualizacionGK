@@ -16,12 +16,12 @@
 
 
     <div class="container-fluid">
-        <br>
-        <div class="row">
+        
+        <div class="row bg-dark">
             <div class="col-md-12 text-end">
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-danger">
                         <img src="{{asset('img/salir.png')}}" style="width: 30px; height: 30px;" alt="Actualizar" class="img-fluid mr-2"> Salir
                     </button>
                 </form>
@@ -68,20 +68,22 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <table class="table table-striped py-3" id="tabla_actualizacion">
-                    <thead class="table-dark">
-                        <tr>
-                            <th style="width: 50px;">Folio</style=>
-                            <th>Fecha</th>
-                            <th>Concepto</th>
-                            <th style="width: 115px;">Numero Póliza</th>
-                            <th style="width: 100px;">Total</th>
-                            <th style="width: 115px;">Metodo Pago</style=>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
+                    <div class="table-responsive">
+                        <table class="table table-striped py-3" id="tabla_actualizacion">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th style="width: 50px;">Folio</th>
+                                    <th>Fecha</th>
+                                    <th>Concepto</th>
+                                    <th style="width: 115px;">Numero Póliza</th>
+                                    <th style="width: 100px;">Total</th>
+                                    <th style="width: 115px;">Metodo Pago</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
                 <br><br>
                 <div class="text-end">
                     <button class="btn btn-primary" onclick="actualizar()">Actualizar Datos</button>

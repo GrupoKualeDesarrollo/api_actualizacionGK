@@ -197,11 +197,7 @@ class ExcelController extends Controller
                     return response()->json(["respuesta" => 1, "mensaje" => "Actualizados Correctamente"]);
                     break;
             }
-
-
-
-
-
+            
             // if ($empresa === "1") {
             //     $datosActualizar = DB::connection('conexion-ContpaqCARLS-prod')->table('Ingresos')
             //         ->whereDate('Fecha', '>=', $desde)
